@@ -22,15 +22,21 @@ $(function () {
     tableTr.append(tableTd1, tableTd2, tableTd3, tableTd4, tableTd5);
     tableTr.attr('id', data.id);
     tableTr.click(function () {
+      let id = data.id;
       $('#userSelected').text(data.firstName + ' ' + data.lastName);
       $('#description').text(data.description);
       $('#address').text(data.address.streetAddress);
-
+      for (let i = 1; i < $('tr').length; i++) {
+        if ($('tr').eq(i)[0].id == data.id) {
+          $('tr').eq(i).addClass('active');
+        } else $('tr').eq(i).removeClass('active');
+      }
       $('#city').text(data.address.city);
       $('#state').text(data.address.state);
       $('#zip').text(data.address.zip);
       $('#info-content').css({ display: 'block' });
     });
+
     return tableTr;
   }
 
