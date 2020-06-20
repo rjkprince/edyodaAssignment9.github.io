@@ -51,7 +51,7 @@ $(function () {
   $('#search-box').on({
     input: function () {
       let myInput = $('#search-box')[0].value;
-
+      myInput = myInput.toLowerCase();
       if (myInput != null && myInput != '' && myInput != undefined) {
         let col1 = $('.column1');
         let col2 = $('.column2');
@@ -61,11 +61,11 @@ $(function () {
         for (let i = 1; i < col1.length; i++) {
           if (
             checkFn(
-              col1.eq(i).text(),
-              col2.eq(i).text(),
-              col3.eq(i).text(),
-              col4.eq(i).text(),
-              col5.eq(i).text(),
+              col1.eq(i).text().toLowerCase(),
+              col2.eq(i).text().toLowerCase(),
+              col3.eq(i).text().toLowerCase(),
+              col4.eq(i).text().toLowerCase(),
+              col5.eq(i).text().toLowerCase(),
               myInput
             )
           ) {
